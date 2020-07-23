@@ -142,7 +142,7 @@ function stop(message, serverQueue) {
 
 function leave(serverQueue){
 
-  serverQueue.voiceChannel.leave();
+  //serverQueue.voiceChannel.leave();
   //serverQueue.delete(guild.id);
   return;
 } 
