@@ -17,7 +17,7 @@ console.log("ready");
 });
 
 client.once('reconnecting', () => {
-console.log("reconnecting")
+console.log("reconnecting++")
 });
 
 client.once("disconnect", () => {
