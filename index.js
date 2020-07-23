@@ -44,7 +44,7 @@ client.on("message", async message => {
         stop(message, serverQueue);
         return;
     }else if (message.content.startsWith(`${prefix}leave`)){
-        leave();
+        leave(serverQueue);
     }
     else {
         message.channel.send("Commande invalide, apprends à écrire PD");
@@ -140,8 +140,11 @@ function stop(message, serverQueue) {
     serverQueue.connection.dispatcher.end();
   }
 
-function leave(){
+function leave(serverQueue){
+
   serverQueue.voiceChannel.leave();
+  //serverQueue.delete(guild.id);
+  return;
 } 
 
 client.login(token);  
