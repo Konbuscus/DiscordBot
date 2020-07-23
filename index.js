@@ -43,7 +43,7 @@ client.on("message", async message => {
     } else if (message.content.startsWith(`${prefix}stop`)) {
         stop(message, serverQueue);
         return;
-    }else if (message.content.startsWith(`${prefix}stop`)){
+    }else if (message.content.startsWith(`${prefix}leave`)){
         leave();
     }
     else {
