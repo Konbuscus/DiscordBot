@@ -43,7 +43,10 @@ client.on("message", async message => {
     } else if (message.content.startsWith(`${prefix}stop`)) {
         stop(message, serverQueue);
         return;
-    } else {
+    }else if (message.content.startsWith(`${prefix}stop`)){
+        leave();
+    }
+    else {
         message.channel.send("Commande invalide, apprends à écrire PD");
     }
 });
@@ -123,8 +126,8 @@ function skip(message, serverQueue){
     }
     if(!serverQueue){
         return message.channel.send("Aucune musique à skip PD");
-        serverQueue.connection.dispatcher.end();
     }
+    serverQueue.connection.dispatcher.end();
 }
 
 function stop(message, serverQueue) {
@@ -137,9 +140,8 @@ function stop(message, serverQueue) {
     serverQueue.connection.dispatcher.end();
   }
 
-function leave(client){
-
-    client.disconnect();
+function leave(){
+  serverQueue.voiceChannel.leave();
 } 
 
 client.login(token);  
